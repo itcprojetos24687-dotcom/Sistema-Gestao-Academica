@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passagem de parametros entre paginas</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+            
+        }
+
+        h1{
+            margin: 30px 0px;
+        }
+        .oneRow{
+            
+        }
+        form{
+            border: 2px solid black;
+            padding: 15px 20px ;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            
+        }
+        .cols{
+            display: grid;
+            gap: 5px;
+            label{
+                text-align: start;
+
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de candidatura</h1>
+    <form action="dados_candidatura.php" method="get">
+        <div class="cols">
+            <label for="">Nome: </label>
+            <input type="text" name="nome">
+        </div>
+        <div class="cols">
+            <label for="">Apelido: </label>
+            <input type="text" name="apelido">
+        </div>
+        <div class="cols">
+            <label for="">Data de candidatura</label>
+            <input type="date" name="data_candidatura">
+        </div>
+        <div class="cols oneRow">
+            <label for="">Nivel Academicco</label>
+            <select name="nivel_academico" id="nivel">
+                <option value="basico">basico</option>
+                <option value="medio">medio</option>
+                <option value="tecnico_professional">tecnico professional</option>
+                <option value="superior">superior</option>
+            </select>
+        </div>
+        <div class="cols oneRow">
+            <label for="">Vaga a se candidatar</label>
+            <input type="text" name="vaga">
+        </div>
+        <button><a href="./detalhes.php">Ver dados de candidatos</a></button>
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>
