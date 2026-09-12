@@ -2,7 +2,7 @@
     define("hostname", "127.0.0.1");
     define("username","root");
     define("password","Malikdb123!");
-    define("Database","Estacionamento");
+    define("Database","GestaoProfessor");
 
     $conexao = mysqli_connect(hostname,username,password,Database);
 
@@ -19,9 +19,7 @@
             while($rs=mysqli_fetch_assoc($row)){
                 //array_push($carros,$rs);
                 echo $rs["current_user"];
-                echo "Nome: {$rs["marca"]} <br>"; 
-                echo "Nome: {$rs["modelo"]} <br>";
-                echo "Nome: {$rs["matricula"]} <br>";  
+                  
 
 
             }
