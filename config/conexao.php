@@ -1,32 +1,27 @@
 <?php 
-    define("hostname", "127.0.0.1");
-    define("username","root");
-    define("password","Malikdb123!");
-    define("Database","GestaoProfessor");
 
-    $conexao = mysqli_connect(hostname,username,password,Database);
+    class Database{
+        private $host = "127.0.0.1";
+        private $db_name = "GestaoProfessor";
+        private $user_name = "root!";
+        private $password = "Malikdb123!";
 
-    if(mysqli_connect_error()){
-        die("Erro ao conectar a base de dados ".mysqli_connect_error()."(".mysqli_connect_error().")");
-    }else{
+        public $conn;
 
-        $sql = "select current_user;";
-        $row = mysqli_query($conexao,$sql);
+        public function getConnection(){
+            $this->conn = null;
 
-        if($row){
-            $carros = array();
-        
-            while($rs=mysqli_fetch_assoc($row)){
-                //array_push($carros,$rs);
-                echo $rs["current_user"];
-                  
+            try{
+                $this->conn = new mysqli($this->host,$this->user_name,$this->password,$this->db_name);
 
-
+                if($this->conn->connect_error){
+                    throw new Exception("Erro de conexao: ".$this->conn->connect_error);
+                }
+            }catch(Exception $e){
+                die("Falha na base de dados: ".$e->getMessage());
             }
-
-            
+            return $this->conn;
         }
-    
     }   
 
 ?>
