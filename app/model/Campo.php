@@ -23,16 +23,19 @@ require_once __DIR__ .'/../../config/conexao.php';
         public function setNome($nome){return $this->nome=$nome;}
 
         public function cadastrar($Campo){
-            $query = "insert into Campo (nome) values (1)";
+            $query = "insert into Campo (nome) values (?)";
             $result = $this->db->prepare($query);
-            $result->bind_param("s",$Campo->getNome);
+            $nome = $Campo->getNome();
+            $result->bind_param("s",$nome);
             return $result->execute();
         }
 
         public function atualizar($Campo){
             $query = "update Campo set nome = ? where codigo = ?";
             $result = $this->db->prepare($query);
-            $result->bind_param("si",$Campo->getNome,$Campo->getCodigo);
+            $codigo = $Campo->getCodigo();
+            $nome = $Campo->getNome();
+            $result->bind_param("si",$nome,$codigo);
         }
         public function getAll(){
             $query = "select * from Campo";

@@ -7,7 +7,10 @@ class Router{
 
         $controllerName = ucfirst($url[0] ?? 'home') . 'Controller';
         $methodName = $url[1] ?? 'index';
-        $id = $url[2] ?? null;
+        $params = array_slice($url, 2);
+        
+
+        $params = isset($params) ? $params : [];
         
         $controllerFile = __DIR__ . '/../app/Controller/'. $controllerName .'.php' ;
 
@@ -31,7 +34,8 @@ class Router{
             return;
 
         }
-        $controller->$methodName();
+        // call_user_func_array([$controller,$methodName],$params);
+        $controller->$methodName($params);
     }
 }
 ?>

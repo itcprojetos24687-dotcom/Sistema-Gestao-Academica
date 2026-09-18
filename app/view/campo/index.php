@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    Editar campo
+    <h1>Campo index</h1>
 </body>
 </html>

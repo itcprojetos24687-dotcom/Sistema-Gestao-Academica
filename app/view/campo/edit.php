@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>Editar campo</h2>
 </body>
 </html>
