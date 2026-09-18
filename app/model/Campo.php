@@ -1,16 +1,17 @@
 <?php 
 
-include './config/conexao.php';
-
+require_once __DIR__ .'/../../config/conexao.php';
     class Campo{
         private $codigo;
         private $nome;
         private $db;
         
-        public function __construct($codigo, $nome)
+        public function __construct()
         {
-            $this->codigo = $codigo;
-            $this->nome = $nome;
+            // $this->codigo = $codigo;
+            // $this->nome = $nome;
+            $this->codigo;
+            $this->nome ;
             $database = new Database();
             $this->db = $database->getConnection();
         }
@@ -34,9 +35,8 @@ include './config/conexao.php';
             $result->bind_param("si",$Campo->getNome,$Campo->getCodigo);
         }
         public function getAll(){
-            $query = "select * from campo";
-            $stmt = $this->db->prepare($query);
-            $result = $stmt->get_result();
+            $query = "select * from Campo";
+            $result = $this->db->query($query);
 
             $campo = [];
             while($row = $result->fetch_assoc()){
