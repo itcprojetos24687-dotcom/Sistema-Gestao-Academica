@@ -12,7 +12,7 @@ class CampoController{
 
     public function index(){
         $campos = $this->model->getAll();
-        require __DIR__ . "/../view/campo/index.php";
+        require __DIR__ . "/../view/campo/show.php";
     }
 
     public function edit($codigo){
