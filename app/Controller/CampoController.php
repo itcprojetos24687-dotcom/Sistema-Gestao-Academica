@@ -28,21 +28,22 @@ class CampoController{
         $campo = new campo();
         $campo->setNome($_POST['nome']);
         $stmt = $this->model->cadastrar($campo);
-        header("Location: /git/Sistema-Gestao-Academica/public/campo");
+        header("Location: ".BASE_URL."/campo/index");
     }
 
-    public function update(){
+    public function update($codigo){
         $campo = new Campo();
-        $campo->setNome($_POST['name']);
+        $campo->setNome($_POST['nome']);
+        $campo->setCodigo($codigo);
         $this->model->atualizar($campo);
-        header("Location: /git/Sistema-Gestao-Academica/public/campo");
+        header("Location: ".BASE_URL."/campo");
         exit;
 
     }
 
     public function delete($codigo){
         $this->model->deletar($codigo);
-        header("Location: /git/Sistema-Gestao-Academica/public/campo");
+        header("Location: ".BASE_URL."/campo");
         exit;
     }
 

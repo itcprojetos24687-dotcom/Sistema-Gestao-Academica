@@ -7,10 +7,11 @@ class Router{
 
         $controllerName = ucfirst($url[0] ?? 'home') . 'Controller';
         $methodName = $url[1] ?? 'index';
-        $params = array_slice($url, 2);
+        // $params = array_slice($url, 2);
+        $params = $url[2] ?? null;
         
 
-        $params = isset($params) ? $params : [];
+        // $params = isset($params) ? $params : [];
         
         $controllerFile = __DIR__ . '/../app/Controller/'. $controllerName .'.php' ;
 

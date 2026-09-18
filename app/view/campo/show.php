@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style/showCampo.css">
 </head>
 <body>
-    
+  <a href="<?= BASE_URL ?>/campo/create">Cadastrar novo Campo</a>  
   <table class="styled-table">
   <thead>
     <tr>
@@ -20,6 +20,8 @@
     <tr>
         <td><?= $campo['codigo'] ?></td>
         <td><?= $campo['nome'] ?></td>
+        <td><a href="<?= BASE_URL ?>/campo/edit/<?= $campo['codigo'] ?>">Editar</a></td>
+        <td><a href="<?= BASE_URL ?>/campo/delete/<?= $campo['codigo'] ?>"">Deletar</a></td>
     </tr>
     <?php endforeach ?>
   </tbody>

@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Create campo</h1>
+    <a href="<?= BASE_URL ?>/campo">< Voltar</a>
+    <h1>Cadastrar campo</h1>
+    <form action="<?= BASE_URL ?>/campo/store" method="post">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome">
+        <button type="submit">Cadastrar</button>
+    </form>
 </body>
 </html>

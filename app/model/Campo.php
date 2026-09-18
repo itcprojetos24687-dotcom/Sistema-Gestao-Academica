@@ -31,11 +31,9 @@ require_once __DIR__ .'/../../config/conexao.php';
         }
 
         public function atualizar($Campo){
-            $query = "update Campo set nome = ? where codigo = ?";
-            $result = $this->db->prepare($query);
-            $codigo = $Campo->getCodigo();
-            $nome = $Campo->getNome();
-            $result->bind_param("si",$nome,$codigo);
+            $query = "update Campo set nome = {$Campo->getNome()} where codigo = {$Campo->getCodigo()}";
+            $result = $this->db->query($query);
+            
         }
         public function getAll(){
             $query = "select * from Campo";
@@ -48,21 +46,17 @@ require_once __DIR__ .'/../../config/conexao.php';
             return $campo;
         }
         public function getById($codigo){
-            $query = "select * from Campo where codigo = ?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("i",$codigo);
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $query = "select * from Campo where codigo = ".$codigo;
+            $stmt = $this->db->query($query);
 
-            return $result->fetch_assoc();
+            return $stmt->fetch_assoc(); 
         }
 
         public function deletar($codigo){
-            $query = "delete from campo where codigo = ?";
-            $result = $this->db->prepare($query);
-            $result->bind_param("s",$codigo);
+            $query = "delete from Campo where codigo = ".$codigo;
+            $result = $this->db->query($query);
 
-            return $result->execute();
+            
         }
         
 
