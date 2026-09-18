@@ -2,10 +2,10 @@
 
 class Router{
     public function run(){
-        $url = $_GET['url'] ?? 'campo/index';
+        $url = $_GET['url'] ?? 'home/index';
         $url = explode('/', $url);
 
-        $controllerName = ucfirst($url[0] ?? 'campo') . 'Controller';
+        $controllerName = ucfirst($url[0] ?? 'home') . 'Controller';
         $methodName = $url[1] ?? 'index';
         $id = $url[2] ?? null;
         
